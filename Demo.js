@@ -1,7 +1,7 @@
 import * as CANNON from "cannon-es";
 import * as THREE from "three";
 import Stats from "three/examples/jsm/libs/stats.module.js";
-import * as dat from "dat.gui";
+import dat from "lil-gui";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls.js";
 import { SmoothieChart, TimeSeries } from "./smoothie.js";
 import { addTitle, addSourceButton } from "./dom-utils.js";
