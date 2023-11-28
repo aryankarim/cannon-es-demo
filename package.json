@@ -1,0 +1,12 @@
+{
+  "name": "cannon-es-demo",
+  "version": "1.0.0",
+  "entry-point": "Demo.js",
+  "dependencies": {
+    "cannon-es": "^0.20.0",
+    "dat.gui": "^0.7.9",
+    "three": "^0.158.0"
+  },
+  "author": "Aryan Karim",
+  "license": "MIT"
+}
