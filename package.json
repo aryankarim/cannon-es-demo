@@ -1,10 +1,10 @@
 {
   "name": "cannon-es-demo",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "main": "Demo.js",
   "dependencies": {
     "cannon-es": "^0.20.0",
-    "dat.gui": "^0.7.9",
+    "lil-gui": "^0.19.1",
     "three": "^0.158.0"
   },
   "author": "Aryan Karim",
