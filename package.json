@@ -1,6 +1,6 @@
 {
   "name": "cannon-es-demo",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "main": "Demo.js",
   "dependencies": {
     "cannon-es": "^0.20.0",
