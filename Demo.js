@@ -96,7 +96,7 @@ class Demo extends CANNON.EventTarget {
 
   initGui = () => {
     // DAT GUI
-    this.gui = new dat.GUI();
+    this.gui = new dat();
     this.gui.domElement.parentNode.style.zIndex = 3;
 
     // Render mode
