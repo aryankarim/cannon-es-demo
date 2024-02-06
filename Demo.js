@@ -1,10 +1,6 @@
 import * as CANNON from "cannon-es";
 import * as THREE from "three";
-import Stats from "three/examples/jsm/libs/stats.module.js";
 import dat from "lil-gui";
-import { OrbitControls } from "three/examples/jsm/controls/OrbitControls.js";
-import { SmoothieChart, TimeSeries } from "./smoothie.js";
-import { addTitle, addSourceButton } from "./dom-utils.js";
 import { bodyToMesh } from "./three-conversion-utils.js";
 
 /**
@@ -71,20 +67,8 @@ class Demo extends CANNON.EventTarget {
     // Init the geometry caches
     this.initGeometryCaches();
 
-    // Init stats.js
-    this.initStats();
-
-    // Init smoothie.js
-    this.initSmoothie();
-
     // Init dat.gui
     this.initGui();
-
-    // Add title info
-    addTitle();
-
-    // Add view-source button
-    addSourceButton();
 
     // Start the loop!
     this.animate();
@@ -266,11 +250,6 @@ class Demo extends CANNON.EventTarget {
     });
 
     this.settings.rendermode = mode;
-  };
-
-  initStats = () => {
-    this.stats = new Stats();
-    document.body.appendChild(this.stats.domElement);
   };
 
   /**
@@ -697,9 +676,7 @@ class Demo extends CANNON.EventTarget {
       this.updatePhysics();
       this.updateVisuals();
     }
-    this.controls.update();
     this.renderer.render(this.scene, this.camera);
-    this.stats.update();
   };
 
   lastCallTime = 0;
@@ -738,16 +715,6 @@ class Demo extends CANNON.EventTarget {
     switch (event.code) {
       case "Space": // Space - restart
         this.restartCurrentScene();
-        break;
-
-      case "KeyH": // h - toggle widgets
-        if (this.stats.domElement.style.display == "none") {
-          this.stats.domElement.style.display = "block";
-          info.style.display = "block";
-        } else {
-          this.stats.domElement.style.display = "none";
-          info.style.display = "none";
-        }
         break;
 
       case "KeyA": // a - AABBs
@@ -852,16 +819,6 @@ class Demo extends CANNON.EventTarget {
     directionalLight.position.set(-30, 40, 30);
     directionalLight.target.position.set(0, 0, 0);
     this.scene.add(directionalLight);
-
-    // Orbit controls
-    this.controls = new OrbitControls(this.camera, this.renderer.domElement);
-    this.controls.rotateSpeed = 1.0;
-    this.controls.zoomSpeed = 1.2;
-    this.controls.enableDamping = true;
-    this.controls.enablePan = false;
-    this.controls.dampingFactor = 0.2;
-    this.controls.minDistance = 10;
-    this.controls.maxDistance = 500;
   };
 
   initSmoothie = () => {
